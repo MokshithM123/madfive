@@ -55,7 +55,16 @@ public class MainActivity extends AppCompatActivity {
     sendIntent.setType("vnd.android-dir/mms-sms");
     startActivity(sendIntent);
     Toast.makeText(getApplicationContext(), "SMS sent.",Toast.LENGTH_LONG).show();
-  } protected void PhoneDial() {
+  } 
+  protected void PhoneDial() {
     Intent intent = new Intent(Intent.ACTION_DIAL);
     startActivity(intent); }
 }
+
+protected void sendSMSMessage() {
+        Uri str = Uri.parse("sms:");
+        Intent sendIntent = new Intent(Intent.ACTION_SENDTO, str);
+        sendIntent.putExtra("sms_body", "message txt");
+        startActivity(sendIntent);
+        Toast.makeText(getApplicationContext(), "SMS sent", Toast.LENGTH_LONG).show();
+    }
